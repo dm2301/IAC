@@ -1,0 +1,90 @@
+# === Variables de entorno y credenciales ===
+.env
+.env.*
+!.env.example
+
+# === API keys, tokens y secretos en archivos locales ===
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+credentials.json
+secrets.json
+secret.json
+service-account*.json
+*-credentials.json
+tokens.json
+api_keys.*
+apikeys.*
+
+# === Configuracion local ===
+*.local
+*.local.*
+config.local.*
+settings.local.*
+
+# === Logs ===
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === Directorios temporales ===
+tmp/
+temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# === Dependencias y artefactos generados (Node.js) ===
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+.npm/
+# package-lock.json se genera en runtime al montar ./backend en el contenedor
+package-lock.json
+
+# === Terraform ===
+.terraform/
+.terraform.tfstate.lock.info
+*.tfstate
+*.tfstate.*
+terraform.tfstate.d/
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# === IDE / editor ===
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+*.sublime-project
+.project
+.classpath
+.settings/
+
+# === Sistema operativo ===
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend</title>
+</head>
+<body>
+  <h1>Frontend</h1>
+  <p>Puerto del backend: <span id="puerto"></span></p>
+  <button id="consultar">Consultar backend</button>
+  <pre id="respuesta"></pre>
+
+  <script>
+    const puertoBackend = parseInt(window.location.port, 10) + 1;
+    const api = window.location.protocol + "//" + window.location.hostname + ":" + puertoBackend;
+
+    document.getElementById("puerto").textContent = api;
+
+    document.getElementById("consultar").addEventListener("click", async () => {
+      const salida = document.getElementById("respuesta");
+      salida.textContent = "Consultando...";
+      try {
+        const respuesta = await fetch(api + "/");
+        const datos = await respuesta.json();
+        salida.textContent = JSON.stringify(datos, null, 2);
+      } catch (error) {
+        salida.textContent = "Error: " + error.message;
+      }
+    });
+  </script>
+</body>
+</html>
