@@ -86,6 +86,10 @@ resource "docker_container" "bd" {
   networks_advanced {
     name = docker_network.red.name
   }
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }
 
 resource "docker_container" "api" {
@@ -119,6 +123,10 @@ resource "docker_container" "api" {
   }
 
   depends_on = [docker_container.bd]
+
+  lifecycle {
+    ignore_changes = [network_mode]
+  }
 }
 
 resource "docker_container" "web" {
@@ -139,5 +147,9 @@ resource "docker_container" "web" {
 
   networks_advanced {
     name = docker_network.red.name
+  }
+
+  lifecycle {
+    ignore_changes = [network_mode]
   }
 }
